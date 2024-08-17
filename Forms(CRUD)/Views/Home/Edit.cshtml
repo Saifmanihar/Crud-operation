@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    
+    var PhotoPath = "/Images/" + (Model.ExistingPhotoPath ?? "bike1.webp");
+}
+@model Forms_CRUD_.ViewModels.StudentEditViewModel;
+
+<h1>Edit page</h1>
+
+<form enctype="multipart/form-data" class="m-5" method="post" asp-action="Edit" asp-controller="Home">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="ExistingPhotoPath" />
+    <div class="">
+        <label asp-for="Name" class="form-label">Enter your name:-</label>
+        <input asp-for="Name" type="text"  class="form-control" />
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <div class="">
+        <label asp-for="Email" class="form-label">Enter your Email:-</label>
+        <input asp-for="Email" type="email" class="form-control" />
+        <span class="text-danger" asp-validation-for="Email"></span>
+    </div>
+    <div class="">
+        <label asp-for="Description" class="form-label">Enter your Description:-</label>
+        <input asp-for="Description" type="text" class="form-control" />
+        <span class="text-danger" asp-validation-for="Description"></span>
+    </div>
+    
+    <div class="custom-file mt-2">
+        <label class="custom-file-label">Select Your Image:-</label>
+        <input class="form-control custom-file-input" multiple asp-for="Photo" />
+    </div>
+
+    <div class="form-group row col-lg-3 offset-4 mt-3">
+        <img src="@PhotoPath" class="card-deck" style="width:18rem" asp-append-version="true" />
+    </div>
+
+    <button type="submit" class="btn btn-primary me-3 mt-2">Update</button>
+    <button type="submit" asp-controller="Home" asp-action="StudentDetails"  class="btn btn-primary me-3 mt-2">Cancel</button>
+    </form>

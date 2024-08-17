@@ -1,0 +1,52 @@
+﻿
+@model IEnumerable<Forms_CRUD_.Models.StudentModel>;
+@* @model Forms_CRUD_.ViewModels.StudentCreateViewModel; *@
+<table class="table">
+    <thead>
+        <tr>
+            <th class="col">Id</th>
+            <th class="col">Name</th>
+            <th class="col">Description</th>
+            <th class="col">Email</th>
+            <th class="col">Action</th>
+        </tr>
+      
+    </thead>
+    
+        <tbody>
+            @foreach (var std in Model)
+            {
+                <tr>
+                <td>@std.Id</td>
+                <td>@std.Name</td>
+                <td>@std.Description</td>
+                <td>@std.Email</td>
+
+                 <td>
+                      <form asp-controller="Home" asp-action="DeletebyId" asp-route-id="@std.Id" method="post">
+                        <button type="submit"><i class="fa-solid fa-trash"></i></button>
+      
+                     </form>
+                </td>
+
+                
+                
+
+@*                     <td>
+                   
+                        @Html.ActionLink("Delete", "DeletebyId","Home", new { id = std.Id })
+                      
+                    </td> *@
+               
+                <td>
+                    <a asp-controller="Home" class="btn btn-primary" asp-action="Privacy" asp-route-id="@std.Id">View</a>
+                </td>
+                
+                </tr>
+            }
+            
+        </tbody>
+
+    
+    
+</table>

@@ -1,0 +1,28 @@
+﻿@* @model Forms_CRUD_.ViewModels.HomeViewModel;
+
+@{
+    var PhotoPath = "~/Images/" + (Model.PhotoPath ?? "bike1.webp");
+}
+
+
+<h1>Edit Page</h1>
+
+
+  
+    <div class="card-deck ">
+        <div class="card " >
+            <div class="card-header">
+                <h1>@Model.Name</h1>
+            </div>
+            <div class="card-body">
+            <img class="card-img-top " style="width:15rem" src="@Model.PhotoPath" asp-append-version="true" />
+                 <img src="@StudentList.PhotoPath" class="card-img-top" alt="Img" asp-append-version=true/>
+                <div class="card-footer">
+                <a asp-controller="Home" asp-action="Privacy" asp-route-id="@Model.Id">View</a>
+                    <a href="#" class="btn btn-primary">Edit</a>
+                    <a href="#" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+ *@

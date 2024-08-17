@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model Forms_CRUD_.ViewModels.StudentCreateViewModel;
+
+@* <div class="text-success mb-lg-5">
+    <div>@Model.Id</div>
+    <div>@Model.Name</div>
+    <div>@Model.Description</div>
+    <div>@Model.Email</div>
+</div> *@
+
+<form enctype="multipart/form-data" class="m-5" method="post" asp-action="Index" asp-controller="Home">
+    <div class="">
+        <label asp-for="Name" class="form-label">Enter your name:-</label>
+        <input asp-for="Name" type="text"  class="form-control" />
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <div class="">
+        <label asp-for="Email" class="form-label">Enter your Email:-</label>
+        <input asp-for="Email" type="email" class="form-control" />
+        <span class="text-danger" asp-validation-for="Email"></span>
+    </div>
+    <div class="">
+        <label asp-for="Description" class="form-label">Enter your Description:-</label>
+        <input asp-for="Description" type="text" class="form-control" />
+        <span class="text-danger" asp-validation-for="Description"></span>
+    </div>
+    
+    <div class="custom-file mt-2">
+        <label class="custom-file-label">Select Your Image:-</label>
+        <input class="form-control custom-file-input" multiple asp-for="Photo" required />
+    </div>
+    <button type="submit" class="btn btn-primary me-3 mt-2">Submit</button>
+    @* <div class="text-danger">Total Count:- @_interface.GetAllStudent().Count()</div> *@
+
+
+  
+</form>

@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Form";
+}
+@model Forms_CRUD_.ViewModels.RegisterUserViewModel;
+
+
+<form method="post" asp-controller="Account" asp-action="Form">
+    <div class="">
+        <label asp-for="Email" class="form-label">Enter your Email:-</label>
+        <input asp-for="Email" type="email" class="form-control" />
+        <span class="text-danger" asp-validation-for="Email"></span>
+    </div>
+   
+
+    <div>
+        <label asp-for="Password">Enter your password:-</label>
+        <input type="password" asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Email">Enter your Conform Password:-</label>
+        <input type="password" asp-for="ConfirmPassword" class="form-control" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2" >Submit</button>
+</form>
+

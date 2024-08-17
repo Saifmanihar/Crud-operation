@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Not Found Page";
+}
+@model int
+
+<div class="alert alert-danger">
+    <h1>@ViewBag.ErrorMessage</h1>
+    <hr />
+   <a asp-action="StudentDetails" asp-controller="Home">Click here to see Student list</a>
+</div>

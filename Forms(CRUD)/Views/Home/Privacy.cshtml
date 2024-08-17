@@ -1,0 +1,33 @@
+﻿
+@model StudentModel
+@{
+    ViewData["Title"] = "Privacy Policy";
+    var PhotoPath = "~/Images/" + (Model.PhotoPath ?? "bike1.webp");
+}
+
+
+<div class="row justify-content-center">
+        <div class="col-lg-8">
+        <div class="card-deck ">
+                <div class="card ">
+                    <div class="card-header">
+                    <h2>@Model.Name</h2>
+                    </div>
+                  <div class="card-body text-center">
+                      <img class="card-img-top " style="width:15rem" src="@PhotoPath" asp-append-version="true" />
+
+                      <h3>@Model.Id</h3>
+                      
+                      <h3>@Model.Email</h3>
+                      <h3>@Model.Description</h3>
+
+
+                 
+                     <a asp-controller="Home" asp-action="Edit" class="btn btn-primary" asp-route-id="@Model.Id">Update</a>
+                
+                    <a asp-controller="Home" asp-action="StudentDetails" class="btn btn-primary" >Click to See Student List</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+</div>
